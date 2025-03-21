@@ -1,17 +1,13 @@
 import streamlit as st
 
-st.title('Hello World')
-st.write('This is a simple Streamlit app.')
+
+name = st.text_input("Enter your name", "John Doe")
+password = st.text_input("Enter your password", type="password")
 
 
-if st.button("Say Hello"):
-    st.text("Hello")
+if st.button("Submit"):
+   if len(password) < 8:
+       st.warning("Password must be at least 8 characters long")
 
 
-name = st.text_input('Please enter your name:')
-if name:
-   st.write(f'Hello, {name}!')
-
-
-st.file_uploader('Please upload a file:', type=['txt', 'csv'])
-st.write('Thanks for uploading a file!')
+   st.success("Password is valid")
